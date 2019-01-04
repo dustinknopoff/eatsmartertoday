@@ -1,0 +1,15 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100vh;
+  height: 100vw;
+  background: url('https://res.cloudinary.com/dknopoff/image/upload/e_blur:2000/v1530884985/portfolio/jonathan-gallegos-726027-unsplash.jpg')
+    no-repeat center center fixed;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
