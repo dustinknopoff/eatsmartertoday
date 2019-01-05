@@ -1,58 +1,78 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { StaticQuery, graphql } from 'gatsby'
 
-export default class Centerfold extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      options: [
-        `Diabetes`,
-        `Weight Loss`,
-        `Food Sensitivity`,
-        `Healthy Eating`,
-        `Low Carb`,
-        `Lyme Disease`,
-      ],
-      index: 0,
-    }
-    this.handleClick = this.handleClick.bind(this)
+class Centerfold extends React.Component {
+  state = {
+    index: 0,
   }
 
-  handleClick(e) {
+  handleClick = e => {
     this.setState({ index: e })
   }
 
   render() {
-    let _this = this
     return (
-      <Wrapper>
-        <LBT>
-          {_this.state.options.map((opt, index) => {
-            if (index === _this.state.index) {
-              return (
-                <Button
-                  onClick={() => this.handleClick(index)}
-                  key={index}
-                  curr
-                >
-                  {opt}
-                </Button>
-              )
-            } else {
-              return (
-                <Button onClick={() => this.handleClick(index)} key={index}>
-                  {opt}
-                </Button>
-              )
-            }
-          })}
-        </LBT>
-        <Info>lala</Info>
-      </Wrapper>
+      <StaticQuery
+        query={PageQuery}
+        render={data => {
+          return (
+            <Wrapper>
+              <LBT>
+                {data.allMarkdownRemark.edges.map(({ node }) => {
+                  if (node.frontmatter.index === this.state.index) {
+                    return (
+                      <Button
+                        onClick={() => this.handleClick(node.frontmatter.index)}
+                        key={node.frontmatter.index}
+                        curr
+                      >
+                        {node.frontmatter.title}
+                      </Button>
+                    )
+                  } else {
+                    return (
+                      <Button
+                        onClick={() => this.handleClick(node.frontmatter.index)}
+                        key={node.frontmatter.index}
+                      >
+                        {node.frontmatter.title}
+                      </Button>
+                    )
+                  }
+                })}
+              </LBT>
+              <Info
+                dangerouslySetInnerHTML={{
+                  __html:
+                    data.allMarkdownRemark.edges[this.state.index].node.html,
+                }}
+              />
+            </Wrapper>
+          )
+        }}
+      />
     )
   }
 }
+
+export default Centerfold
+
+const PageQuery = graphql`
+  query OptionsQuery {
+    allMarkdownRemark(filter: { frontmatter: { kind: { eq: "home" } } }) {
+      edges {
+        node {
+          frontmatter {
+            title
+            index
+          }
+          html
+        }
+      }
+    }
+  }
+`
 
 export const Button = styled.button`
   background: transparent; /* Green */
@@ -62,7 +82,7 @@ export const Button = styled.button`
   font-size: 2vmin;
   text-align: left;
   padding: 5px 20px 5px 20px;
-
+  margin: 0;
   ${props =>
     props.curr &&
     css`

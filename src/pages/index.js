@@ -26,7 +26,7 @@ const IndexPage = () => (
     <FullFlex name="services">
       <Wrapper>
         <h4>Areas where changes to eating can help:</h4>
-        <Centerfold />
+        <Centerfold name="faq" />
       </Wrapper>
     </FullFlex>
   </Layout>
@@ -65,9 +65,9 @@ export const QuoteWrapper = styled.div`
 
 export const SmallQuote = styled.blockquote`
   color: white;
-  font-size: 2vmin;
+  font-size: 3vmin;
   width: 25%;
-  height: 6vmin;
+  height: 8vmin;
   font-style: italic;
   padding-right: 10px;
   border-right: solid 3px black;
