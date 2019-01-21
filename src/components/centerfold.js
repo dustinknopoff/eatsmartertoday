@@ -25,6 +25,7 @@ class Centerfold extends React.Component {
                       <Button
                         onClick={() => this.handleClick(node.frontmatter.index)}
                         key={node.frontmatter.index}
+                        name={`faq/${node.frontmatter.title}`}
                         curr
                       >
                         {node.frontmatter.title}
@@ -35,6 +36,7 @@ class Centerfold extends React.Component {
                       <Button
                         onClick={() => this.handleClick(node.frontmatter.index)}
                         key={node.frontmatter.index}
+                        name={`faq/${node.frontmatter.title}`}
                       >
                         {node.frontmatter.title}
                       </Button>

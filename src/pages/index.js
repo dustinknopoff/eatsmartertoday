@@ -25,7 +25,7 @@ const IndexPage = () => (
     </Full>
     <FullFlex name="services">
       <Wrapper>
-        <h4>Areas where changes to eating can help:</h4>
+        <H4>Areas where changes to eating can help:</H4>
         <Centerfold name="faq" />
       </Wrapper>
     </FullFlex>
@@ -77,4 +77,8 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`
+
+export const H4 = styled.h4`
+  font-size: 4vw;
 `
