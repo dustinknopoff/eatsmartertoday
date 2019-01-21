@@ -1,8 +1,8 @@
-import React from 'react'
-import Layout from '../components/layout'
-import styled from 'styled-components'
-import SEO from '../components/seo'
-import Centerfold from '../components/centerfold'
+import React from "react"
+import Layout from "../components/layout"
+import styled from "styled-components"
+import SEO from "../components/seo"
+import Centerfold from "../components/centerfold"
 
 const IndexPage = () => (
   <Layout>
@@ -65,12 +65,20 @@ export const QuoteWrapper = styled.div`
 
 export const SmallQuote = styled.blockquote`
   color: white;
-  font-size: 3vmin;
+  font-size: 2.5vh;
   width: 25%;
-  height: 8vmin;
+  height: 8vh;
   font-style: italic;
   padding-right: 10px;
   border-right: solid 3px black;
+
+  @media only screen and (max-width: 768px) {
+    width: 40%;
+  }
+
+  @media only screen and (max-width: 425px) {
+    width: 100%;
+  }
 `
 
 export const Wrapper = styled.div`

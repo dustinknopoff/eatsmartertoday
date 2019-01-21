@@ -1,6 +1,6 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
+import React from "react"
+import styled, { css } from "styled-components"
+import { StaticQuery, graphql } from "gatsby"
 
 class Centerfold extends React.Component {
   state = {
@@ -25,7 +25,7 @@ class Centerfold extends React.Component {
                       <Button
                         onClick={() => this.handleClick(node.frontmatter.index)}
                         key={node.frontmatter.index}
-                        name={`faq/${node.frontmatter.title}`}
+                        name={`services-${node.frontmatter.title}`}
                         curr
                       >
                         {node.frontmatter.title}
@@ -81,7 +81,7 @@ export const Button = styled.button`
   border: none;
   color: white;
   text-decoration: none;
-  font-size: 2vmin;
+  font-size: 3vw;
   text-align: left;
   padding: 5px 20px 5px 20px;
   margin: 0;
