@@ -1,6 +1,6 @@
-import React from 'react'
-import RHS from '../components/RHS'
-import styled from 'styled-components'
+import React from "react"
+import RHS from "../components/RHS"
+import styled from "styled-components"
 
 class Wrap extends React.Component {
   render() {
@@ -23,5 +23,12 @@ export const Wrapper = styled.div`
 
   > div {
     width: 50%;
+  }
+
+  @media only screen and (max-width: 425px) {
+    flex-direction: column-reverse;
+    > div {
+      width: 100%;
+    }
   }
 `

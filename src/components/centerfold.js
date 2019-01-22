@@ -79,9 +79,9 @@ const PageQuery = graphql`
 export const Button = styled.button`
   background: transparent; /* Green */
   border: none;
-  color: white;
+  color: #efefef;
   text-decoration: none;
-  font-size: 3vw;
+  font-size: 2vw;
   text-align: left;
   padding: 5px 20px 5px 20px;
   margin: 0;
@@ -90,6 +90,10 @@ export const Button = styled.button`
     css`
       background: rgba(255, 255, 255, 0.1);
     `};
+
+  @media only screen and (max-width: 425px) {
+    font-size: 4vw;
+  }
 `
 
 export const LBT = styled.div`
@@ -104,6 +108,7 @@ export const Info = styled.p`
   min-height: 20vh;
   padding: 10px;
   margin: 0;
+  color: #efefef;
 `
 
 export const Wrapper = styled.div`

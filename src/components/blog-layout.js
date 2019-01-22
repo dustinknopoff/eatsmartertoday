@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
+import React from "react"
+import styled from "styled-components"
+import { Link } from "gatsby"
 
 const BlogLayout = ({ children }) => (
   <Back>
@@ -17,7 +17,7 @@ export default BlogLayout
 
 export const Back = styled.div`
   background: #eee;
-  min-height: 75vh;
+  min-height: 100vh;
   width: 100vw;
   margin-top: 25vh;
   color: black;

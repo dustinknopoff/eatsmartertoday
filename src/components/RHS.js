@@ -1,10 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import Obfuscate from 'react-obfuscate'
+import React from "react"
+import styled from "styled-components"
+import Obfuscate from "react-obfuscate"
 
 const RHS = () => {
   return (
-    <div>
+    <Wrap>
       <h1>
         Life. <br />
         From a Dietitian's Perspective
@@ -14,7 +14,7 @@ const RHS = () => {
           <img
             src=""
             alt="profile of jill knopoff"
-            style={{ borderRadius: '50%' }}
+            style={{ borderRadius: "50%" }}
           />
           <div>
             <h5>Jill Knopoff, RD, MS</h5>
@@ -25,7 +25,7 @@ const RHS = () => {
           </div>
         </Card>
       </Obfuscate>
-    </div>
+    </Wrap>
   )
 }
 
@@ -40,4 +40,10 @@ export const Card = styled.div`
   flex-direction: row;
   align-items: center;
   color: black;
+`
+
+export const Wrap = styled.div`
+  @media only screen and (max-width: 425px) {
+    margin-bottom: 4vh;
+  }
 `

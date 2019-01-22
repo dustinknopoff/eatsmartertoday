@@ -52,7 +52,7 @@ export const Full = styled.div`
 `
 
 export const Quote = styled.blockquote`
-  color: white;
+  color: black;
   font-size: 6vmin;
   width: 50%;
 `
@@ -64,7 +64,7 @@ export const QuoteWrapper = styled.div`
 `
 
 export const SmallQuote = styled.blockquote`
-  color: white;
+  color: black;
   font-size: 2.5vh;
   width: 25%;
   height: 8vh;
@@ -89,4 +89,5 @@ export const Wrapper = styled.div`
 
 export const H4 = styled.h4`
   font-size: 4vw;
+  color: #efefef;
 `

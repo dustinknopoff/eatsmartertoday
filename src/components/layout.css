@@ -3,14 +3,13 @@ html {
   margin: 0;
   padding: 0;
   width: 100vw;
-  /* height: 100vh; */
-  background: url('https://res.cloudinary.com/dknopoff/image/upload/e_blur:2000/v1530884985/portfolio/jonathan-gallegos-726027-unsplash.jpg')
-    no-repeat center center fixed;
-  color: white;
-  font-family: 'Franklin Gothic Medium', 'Helvetiva', Arial, sans-serif;
+  height: 100vh;
+  background: url("https://res.cloudinary.com/dknopoff/image/upload/e_blur:2000,f_auto/v1548111232/brooke-lark-186926-unsplash.jpg");
+  color: black;
+  font-family: "Franklin Gothic Medium", "Helvetiva", Arial, sans-serif;
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color: black;
 }
