@@ -105,7 +105,7 @@ export const Wrapper = styled.div`
     width: 50%;
   }
 
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 937px) {
     > div {
       width: 100%;
     }
@@ -129,13 +129,17 @@ export const Excerpt = styled.div`
   :hover {
     box-shadow: 3px 11px 24px -6px rgba(0, 0, 0, 0.75);
   }
+
+  @media only screen and (max-width: 937px) {
+    width: 100%;
+  }
 `
 
 export const Left = styled.div`
   overflow-y: scroll;
   height: 85vh;
 
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 937px) {
     height: 100%;
   }
 `

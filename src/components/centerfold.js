@@ -92,7 +92,7 @@ export const Button = styled.button`
     `};
 
   @media only screen and (max-width: 425px) {
-    font-size: 4vw;
+    font-size: 5vw;
   }
 `
 
@@ -100,6 +100,12 @@ export const LBT = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @media only screen and (max-width: 425px) {
+    flex-direction: row;
+    width: 80vw;
+    flex-wrap: wrap-reverse;
+  }
 `
 
 export const Info = styled.p`
@@ -109,9 +115,17 @@ export const Info = styled.p`
   padding: 10px;
   margin: 0;
   color: #efefef;
+
+  @media only screen and (max-width: 425px) {
+    font-size: 6vw;
+  }
 `
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
+  @media only screen and (max-width: 425px) {
+    flex-direction: column;
+    width: 80vw;
+  }
 `

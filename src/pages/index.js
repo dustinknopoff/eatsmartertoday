@@ -90,4 +90,9 @@ export const Wrapper = styled.div`
 export const H4 = styled.h4`
   font-size: 4vw;
   color: #efefef;
+
+  @media only screen and (max-width: 425px) {
+    font-size: 7vw;
+    text-align: center;
+  }
 `

@@ -6,6 +6,7 @@ import { graphql, Link } from "gatsby"
 import Wrap from "../components/wrap"
 import { Tag } from "./post"
 import _ from "lodash"
+import { Left } from "../pages/blog"
 
 class Blog extends React.Component {
   render() {
@@ -15,10 +16,10 @@ class Blog extends React.Component {
       <BlogLayout>
         <SEO title={`blog - ${tag}`} />
         <Wrap
+          tag={tag}
           left={
-            <div style={{ overflowY: "scroll" }}>
+            <Left>
               {data.allMarkdownRemark.edges.map(({ node }) => {
-                console.log(node)
                 return (
                   <Excerpt
                     style={{ paddingRight: "4vmin" }}
@@ -60,7 +61,7 @@ class Blog extends React.Component {
                   </Excerpt>
                 )
               })}
-            </div>
+            </Left>
           }
         />
       </BlogLayout>
@@ -105,7 +106,7 @@ export const Wrapper = styled.div`
     width: 50%;
   }
 
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 937px) {
     > div {
       width: 100%;
     }

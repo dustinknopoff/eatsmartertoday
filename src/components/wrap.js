@@ -7,7 +7,7 @@ class Wrap extends React.Component {
     return (
       <Wrapper>
         {this.props.left}
-        <RHS />
+        <RHS tag={this.props.tag} />
       </Wrapper>
     )
   }
@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
     width: 50%;
   }
 
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 937px) {
     flex-direction: column-reverse;
     > div {
       width: 100%;

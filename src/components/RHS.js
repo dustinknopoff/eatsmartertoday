@@ -2,8 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import Obfuscate from "react-obfuscate"
 import { Link } from "gatsby"
+import _ from "lodash"
 
-const RHS = () => {
+const RHS = ({ tag }) => {
   return (
     <Wrap>
       <Link to="/blog">
@@ -11,6 +12,12 @@ const RHS = () => {
           Life. <br />
           From a Dietitian's Perspective
         </h1>
+        {tag && (
+          <h3>
+            <br />
+            {_.capitalize(tag)}
+          </h3>
+        )}
       </Link>
       <Obfuscate email="eatsmartertoday@gmail.com">
         <Card>
@@ -46,7 +53,7 @@ export const Card = styled.div`
 `
 
 export const Wrap = styled.div`
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 937px) {
     margin-bottom: 4vh;
   }
 `
