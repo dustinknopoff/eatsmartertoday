@@ -5,6 +5,7 @@ import styled from "styled-components"
 import { StaticQuery, graphql, Link } from "gatsby"
 import Wrap from "../components/wrap"
 import { Tag } from "../templates/post"
+import _ from "lodash"
 
 function Blog() {
   return (
@@ -37,7 +38,15 @@ function Blog() {
                         <div>
                           <p>
                             {node.frontmatter.tags.map(tag => {
-                              return <Tag key={tag}>{tag}</Tag>
+                              return (
+                                <Tag
+                                  as={Link}
+                                  to={`/blog/tags/${_.kebabCase(tag)}`}
+                                  key={tag}
+                                >
+                                  {tag}
+                                </Tag>
+                              )
                             })}
                           </p>
                         </div>
