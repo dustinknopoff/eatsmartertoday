@@ -81,7 +81,7 @@ export const Button = styled.button`
   border: none;
   color: #efefef;
   text-decoration: none;
-  font-size: 2vw;
+  font-size: 2vmax;
   text-align: left;
   padding: 5px 20px 5px 20px;
   margin: 0;
@@ -115,6 +115,7 @@ export const Info = styled.p`
   padding: 10px;
   margin: 0;
   color: #efefef;
+  font-size: 2vmax;
 
   @media only screen and (max-width: 425px) {
     font-size: 6vw;

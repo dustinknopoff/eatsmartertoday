@@ -10,7 +10,7 @@ export default ({ data }) => {
   console.log(data.markdownRemark.frontmatter.tags)
   return (
     <BlogLayout>
-      <SEO title={data.markdownRemark.frontmatter.title} />
+      <SEO title={`blog - ${data.markdownRemark.frontmatter.slug}`} />
       <Wrap
         left={
           <div>

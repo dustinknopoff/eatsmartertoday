@@ -13,10 +13,10 @@ const RHS = ({ tag }) => {
           From a Dietitian's Perspective
         </h1>
         {tag && (
-          <h3>
+          <H3>
             <br />
             {_.capitalize(tag)}
-          </h3>
+          </H3>
         )}
       </Link>
       <Obfuscate email="eatsmartertoday@gmail.com">
@@ -56,4 +56,9 @@ export const Wrap = styled.div`
   @media only screen and (max-width: 937px) {
     margin-bottom: 4vh;
   }
+`
+
+export const H3 = styled.h3`
+  color: #707070;
+  font-weight: 700;
 `
