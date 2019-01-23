@@ -16,16 +16,16 @@ function Blog() {
             <SEO title="blog" />
             <Wrap
               left={
-                <div style={{ overflowY: "scroll" }}>
+                <Left>
                   {data.allMarkdownRemark.edges.map(({ node }) => {
                     return (
-                      <Link
-                        to={node.fields.slug}
-                        style={{ color: "black" }}
+                      <Excerpt
+                        style={{ paddingRight: "4vmin" }}
                         key={node.fields.slug}
                       >
-                        <Excerpt
-                          style={{ paddingRight: "4vmin" }}
+                        <Link
+                          to={node.fields.slug}
+                          style={{ color: "black" }}
                           key={node.fields.slug}
                         >
                           <Info>
@@ -33,21 +33,27 @@ function Blog() {
                               {node.frontmatter.title}
                             </h2>
                           </Info>
-                          <div>
-                            <p>
-                              {node.frontmatter.tags.map(tag => {
-                                return <Tag key={tag}>{tag}</Tag>
-                              })}
-                            </p>
-                          </div>
+                        </Link>
+                        <div>
+                          <p>
+                            {node.frontmatter.tags.map(tag => {
+                              return <Tag key={tag}>{tag}</Tag>
+                            })}
+                          </p>
+                        </div>
+                        <Link
+                          to={node.fields.slug}
+                          style={{ color: "black" }}
+                          key={node.fields.slug}
+                        >
                           <div
                             dangerouslySetInnerHTML={{ __html: node.excerpt }}
                           />
-                        </Excerpt>
-                      </Link>
+                        </Link>
+                      </Excerpt>
                     )
                   })}
-                </div>
+                </Left>
               }
             />
           </BlogLayout>
@@ -85,7 +91,6 @@ export const Wrapper = styled.div`
   margin: 3vmin;
   padding-top: 6vmin;
   overflow-y: scroll;
-  height: 85vh;
 
   > div {
     width: 50%;
@@ -95,7 +100,6 @@ export const Wrapper = styled.div`
     > div {
       width: 100%;
     }
-    height: 100%;
   }
 `
 
@@ -115,5 +119,14 @@ export const Excerpt = styled.div`
 
   :hover {
     box-shadow: 3px 11px 24px -6px rgba(0, 0, 0, 0.75);
+  }
+`
+
+export const Left = styled.div`
+  overflow-y: scroll;
+  height: 85vh;
+
+  @media only screen and (max-width: 425px) {
+    height: 100%;
   }
 `

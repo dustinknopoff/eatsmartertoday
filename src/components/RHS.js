@@ -1,14 +1,17 @@
 import React from "react"
 import styled from "styled-components"
 import Obfuscate from "react-obfuscate"
+import { Link } from "gatsby"
 
 const RHS = () => {
   return (
     <Wrap>
-      <h1>
-        Life. <br />
-        From a Dietitian's Perspective
-      </h1>
+      <Link to="/blog">
+        <h1>
+          Life. <br />
+          From a Dietitian's Perspective
+        </h1>
+      </Link>
       <Obfuscate email="eatsmartertoday@gmail.com">
         <Card>
           <img

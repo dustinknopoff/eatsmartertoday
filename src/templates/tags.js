@@ -2,68 +2,79 @@ import React from "react"
 import SEO from "../components/seo"
 import BlogLayout from "../components/blog-layout"
 import styled from "styled-components"
-import { StaticQuery, graphql, Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Wrap from "../components/wrap"
 import { Tag } from "./post"
+import _ from "lodash"
 
-function Blog() {
-  return (
-    <StaticQuery
-      query={TagQuery}
-      render={data => {
-        return (
-          <BlogLayout>
-            <SEO title="blog" />
-            <Wrap
-              left={
-                <div style={{ overflowY: "scroll" }}>
-                  {data.allMarkdownRemark.edges.map(({ node }) => {
-                    console.log(node)
-                    return (
-                      <Link
-                        to={node.fields.slug}
-                        style={{ color: "black" }}
-                        key={node.fields.slug}
-                      >
-                        <Excerpt
-                          style={{ paddingRight: "4vmin" }}
-                          key={node.fields.slug}
-                        >
-                          <Info>
-                            <h2 style={{ paddingLeft: "10px" }}>
-                              {node.frontmatter.title}
-                            </h2>
-                          </Info>
-                          <div>
-                            <p>
-                              {node.frontmatter.tags.map(tag => {
-                                return <Tag key={tag}>{tag}</Tag>
-                              })}
-                            </p>
-                          </div>
-                          <div
-                            dangerouslySetInnerHTML={{ __html: node.excerpt }}
-                          />
-                        </Excerpt>
-                      </Link>
-                    )
-                  })}
-                </div>
-              }
-            />
-          </BlogLayout>
-        )
-      }}
-    />
-  )
+class Blog extends React.Component {
+  render() {
+    const data = this.props.data
+    const tag = this.props.pageContext.tag
+    return (
+      <BlogLayout>
+        <SEO title={`blog - ${tag}`} />
+        <Wrap
+          left={
+            <div style={{ overflowY: "scroll" }}>
+              {data.allMarkdownRemark.edges.map(({ node }) => {
+                console.log(node)
+                return (
+                  <Excerpt
+                    style={{ paddingRight: "4vmin" }}
+                    key={node.fields.slug}
+                  >
+                    <Link
+                      to={node.fields.slug}
+                      style={{ color: "black" }}
+                      key={node.fields.slug}
+                    >
+                      <Info>
+                        <h2 style={{ paddingLeft: "10px" }}>
+                          {node.frontmatter.title}
+                        </h2>
+                      </Info>
+                    </Link>
+                    <div>
+                      <p>
+                        {node.frontmatter.tags.map(tag => {
+                          return (
+                            <Tag
+                              as={Link}
+                              to={`/blog/tags/${_.kebabCase(tag)}`}
+                              key={tag}
+                            >
+                              {tag}
+                            </Tag>
+                          )
+                        })}
+                      </p>
+                    </div>
+                    <Link
+                      to={node.fields.slug}
+                      style={{ color: "black" }}
+                      key={node.fields.slug}
+                    >
+                      <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                    </Link>
+                  </Excerpt>
+                )
+              })}
+            </div>
+          }
+        />
+      </BlogLayout>
+    )
+  }
 }
 
 export default Blog
 
-const TagQuery = graphql`
-  query TagQuery($tag: [String]) {
+export const TagQuery = graphql`
+  query TagQuery($tag: String) {
     allMarkdownRemark(
-      filter: { frontmatter: { tags: { in: $tag }, kind: { eq: "blog" } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { in: [$tag] }, kind: { eq: "blog" } } }
     ) {
       edges {
         node {

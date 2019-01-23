@@ -1,9 +1,10 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import BlogLayout from "../components/blog-layout"
 import Wrap from "../components/wrap"
 import SEO from "../components/seo"
 import styled from "styled-components"
+import _ from "lodash"
 
 export default ({ data }) => {
   console.log(data.markdownRemark.frontmatter.tags)
@@ -17,7 +18,15 @@ export default ({ data }) => {
               <h1>{data.markdownRemark.frontmatter.title}</h1>
               <div>
                 {data.markdownRemark.frontmatter.tags.map(tag => {
-                  return <Tag key={tag}>{tag}</Tag>
+                  return (
+                    <Tag
+                      as={Link}
+                      to={`/blog/tags/${_.kebabCase(tag)}`}
+                      key={tag}
+                    >
+                      {tag}
+                    </Tag>
+                  )
                 })}
               </div>
               <article
@@ -46,7 +55,7 @@ export const query = graphql`
 
 export const Tag = styled.span`
   padding: 5px;
-  margin: 5px;
+  margin: 1vh 5px 15px 1vh;
   background: #dddddd;
   border-radius: 4px;
 
