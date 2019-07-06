@@ -75,7 +75,10 @@ export const TagQuery = graphql`
   query TagQuery($tag: String) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] }, kind: { eq: "blog" } } }
+      filter: {
+        frontmatter: { tags: { in: [$tag] } }
+        fields: { sourceInstanceName: { eq: "blog" } }
+      }
     ) {
       edges {
         node {

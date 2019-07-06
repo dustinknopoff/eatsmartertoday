@@ -26,7 +26,9 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allMarkdownRemark(filter: { frontmatter: { kind: { eq: "blog" } } }) {
+        allMarkdownRemark(
+          filter: { fields: { sourceInstanceName: { eq: "blog" } } }
+        ) {
           edges {
             node {
               frontmatter {

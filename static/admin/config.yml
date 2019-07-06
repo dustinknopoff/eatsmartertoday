@@ -22,6 +22,9 @@ collections:
       - label: Date
         name: date
         widget: date
+      - name: "content"
+        label: Content
+        widget: "markdown"
   - name: "info"
     label: Info
     folder: "content/home"
