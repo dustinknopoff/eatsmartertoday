@@ -19,7 +19,8 @@ export const Back = styled.div`
   background: #eee;
   min-height: 100vh;
   width: 100vw;
-  margin-top: 25vh;
+  margin-top: 20vh;
+  position: fixed;
   color: black;
 `
 
