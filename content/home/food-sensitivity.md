@@ -1,6 +1,5 @@
 ---
 title: Food Sensitivities
-kind: home
 index: 2
 ---
 

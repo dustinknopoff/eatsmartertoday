@@ -76,7 +76,9 @@ export default Blog
 
 const PageQuery = graphql`
   query PageQuery {
-    allMarkdownRemark(filter: { frontmatter: { kind: { eq: "blog" } } }) {
+    allMarkdownRemark(
+      filter: { fields: { sourceInstanceName: { eq: "blog" } } }
+    ) {
       edges {
         node {
           frontmatter {

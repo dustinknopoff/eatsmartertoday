@@ -9,10 +9,18 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content`,
-        name: `writing`,
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/home`,
+        name: `home`,
+      },
+    },
+    `gatsby-source-instance-name-for-remark`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-styled-components`,
     // this (optional) plugin enables Progressive Web App + Offline functionality

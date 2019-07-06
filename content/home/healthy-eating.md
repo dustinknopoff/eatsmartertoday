@@ -1,6 +1,5 @@
 ---
 title: Healthy Eating
-kind: home
 index: 3
 ---
 

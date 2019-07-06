@@ -6,8 +6,8 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "Blog Posts"
-    label: "blog"
+  - name: "blog"
+    label: "Blog Posts"
     folder: "content/blog"
     editor:
       preview: true
@@ -16,8 +16,8 @@ collections:
     fields:
       - label: "Title"
         name: "title"
-      - label: "Tag"
-        name: "tag"
+      - label: "Tags"
+        name: "tags"
         widget: "list"
       - label: Date
         name: date

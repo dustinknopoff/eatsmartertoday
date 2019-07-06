@@ -62,7 +62,9 @@ export default Centerfold
 
 const PageQuery = graphql`
   query OptionsQuery {
-    allMarkdownRemark(filter: { frontmatter: { kind: { eq: "home" } } }) {
+    allMarkdownRemark(
+      filter: { fields: { sourceInstanceName: { eq: "home" } } }
+    ) {
       edges {
         node {
           frontmatter {

@@ -1,6 +1,5 @@
 ---
 title: Diabetes
-kind: home
 index: 1
 ---
 

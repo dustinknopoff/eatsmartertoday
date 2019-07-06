@@ -2,7 +2,6 @@
 title: Test
 tags: ["low carb", "lyme"]
 date: "2019-9-9"
-kind: blog
 ---
 
 # Welcome to the jungle

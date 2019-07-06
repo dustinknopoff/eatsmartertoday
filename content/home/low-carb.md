@@ -1,6 +1,5 @@
 ---
 title: Low Carb
-kind: home
 index: 4
 ---
 

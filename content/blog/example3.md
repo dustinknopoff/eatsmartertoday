@@ -2,7 +2,6 @@
 title: Getting Started with Markdown
 tags: ["low carb", "food sensitvities"]
 date: "2019-1-9"
-kind: blog
 ---
 
 Getting Started with Markdown.
